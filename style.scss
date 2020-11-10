@@ -5,9 +5,8 @@ $borde-prueba: 1px solid black;
     padding: 0;
     .container-grid {
         width: 95%;
-        height: auto;
+        height: 1925px;
         margin: 0 auto;
-        margin-bottom: 40px;
         border: $borde-prueba;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -70,10 +69,62 @@ $borde-prueba: 1px solid black;
             }
         }
         aside {
-            height: 1000px;
-            border: $borde-prueba;
+            height: 1200px;
             grid-column: 3/4;
             grid-row: 4/5;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            h3 {
+                height: 50px;
+                border: $borde-prueba;
+            }
+            .buscar {
+                display: flex;
+                flex-flow: column nowrap;
+                height: 50px;
+                margin-top: 15px;
+            }
+            .login {
+                #login {
+                    height: 250px;
+                    margin-top: 20px;
+                    margin-bottom: 30px;
+                    display: flex;
+                    flex-flow: row wrap;
+                    align-items: center;
+                    justify-content: center;
+                    border: $borde-prueba;
+                    .registro {
+                        flex-basis: 95%;
+                        height: 20px;
+                    }
+                    .botones {
+                        flex-basis: 30%;
+                        height: 30px;
+                        width: 100px;
+                        padding: 10px 0px 25px 0;
+                        align-self: center;
+                    }
+                    a {
+                        flex-basis: 70%;
+                        text-align: center;
+                    }
+                }
+            }
+            .redes {
+                height: 240px;
+                font-size: 30px;
+                margin: 0 auto;
+                margin-top: 20px;
+                margin-bottom: 30px;
+                border: $borde-prueba;
+            }
+            .patrocinadores {
+                height: 240px;
+                border: $borde-prueba;
+                margin-top: 20px;
+            }
         }
         .articulos {
             height: 1000px;
@@ -123,6 +174,7 @@ $borde-prueba: 1px solid black;
             border: $borde-prueba;
             grid-row: 5/6;
             grid-column: 1/4;
+            margin-top: -90px;
         }
     }
 }
