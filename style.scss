@@ -1,0 +1,128 @@
+//VARIABLES
+$borde-prueba: 1px solid black;
+* {
+    margin: 0;
+    padding: 0;
+    .container-grid {
+        width: 95%;
+        height: auto;
+        margin: 0 auto;
+        margin-bottom: 40px;
+        border: $borde-prueba;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 70px 120px 400px 1200px 70px;
+        row-gap: 2%;
+        column-gap: 2%;
+        .cabecera {
+            height: 70px;
+            grid-column: 1/4;
+            display: flex;
+            align-items: center;
+            background-color: black;
+            .logo {
+                flex-basis: 47%;
+                margin-left: 25px;
+                color: white;
+                margin: 0px 100px
+            }
+            .navegacion {
+                flex-basis: 32%;
+                padding-right: 25px;
+                ul {
+                    display: flex;
+                    list-style: none;
+                    border: $borde-prueba;
+                    justify-content: space-between;
+                    li {
+                        a {
+                            text-decoration: none;
+                            color: white;
+                        }
+                    }
+                }
+            }
+        }
+        .banner {
+            height: 120px;
+            border: 5px solid black;
+            grid-row: 2/3;
+            grid-column: 1/4;
+            text-align: center;
+            line-height: 120px;
+        }
+        .tarjetas {
+            height: 400px;
+            border: $borde-prueba;
+            grid-row: 3/4;
+            grid-column: 1/4;
+            border: 5px solid black;
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            justify-content: center;
+            .tarjeta {
+                flex-basis: 25%;
+                flex-grow: 1;
+                margin: 30px;
+                height: 300px;
+                border: $borde-prueba;
+            }
+        }
+        aside {
+            height: 1000px;
+            border: $borde-prueba;
+            grid-column: 3/4;
+            grid-row: 4/5;
+        }
+        .articulos {
+            height: 1000px;
+            grid-column: 1/3;
+            grid-row: 4/5;
+            border: $borde-prueba;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            article {
+                height: 150px;
+                margin-top: 40px;
+                display: flex;
+                flex-direction: column;
+                border: $borde-prueba;
+                .datos {
+                    display: flex;
+                    a {
+                        flex-basis: 71%;
+                        margin-top: 18px;
+                        margin-left: 10px;
+                    }
+                    span {
+                        flex-basis: 17%;
+                        border: $borde-prueba;
+                    }
+                    .s1 {
+                        border-right: 0px solid black;
+                        margin-left: 25px;
+                        padding-left: 5px;
+                    }
+                    .s2 {
+                        border-left: 0px solid black;
+                        padding-right: 5px;
+                    }
+                }
+                p {
+                    margin-top: 10px;
+                    justify-self: center;
+                    align-self: center;
+                    padding: 10px;
+                }
+            }
+        }
+        footer {
+            height: 70px;
+            border: $borde-prueba;
+            grid-row: 5/6;
+            grid-column: 1/4;
+        }
+    }
+}
