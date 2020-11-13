@@ -1,180 +1,395 @@
+//FUENTES
+@font-face {
+    font-family: "TrebuchetMS";
+    src: url(/fonts/TrebuchetMS.ttf);
+    font-style: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "BebasNeue";
+    src: url(/fonts/BebasNeue.otf);
+}
+
+@font-face {
+    font-family: 'WebSymbolsRegular';
+    src: url(/fonts/websymbols-regular-webfont.eot);
+    src: url(/fonts/websymbols-regular-webfont.eot?#iefix) format("embedded-opentype"), url(/fonts/websymbols-regular-webfont.woff) format("woff"), url(/fonts/websymbols-regular-webfont.ttf) format("truetype"), url(/fonts/websymbols-regular-webfont.svg#WebSymbolsRegular) format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
 //VARIABLES
 $borde-prueba: 1px solid black;
+$websymbols: "WebSymbolsRegular";
+$Trebuchet: "TrebuchetMS";
+$Bebas:"BebasNeue";
+$azulprincipal: #37bcf9;
+$azulsecundario: #00538C;
+//herencia
+%icon {
+    font-family: $websymbols;
+}
+
+%cajas-side {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 1px 1px 4px #ccc inset;
+}
+
 * {
     margin: 0;
     padding: 0;
-    .container-grid {
-        width: 95%;
-        height: 1925px;
-        margin: 0 auto;
-        border: $borde-prueba;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: 70px 120px 400px 1200px 70px;
-        row-gap: 2%;
-        column-gap: 2%;
-        .cabecera {
-            height: 70px;
-            grid-column: 1/4;
-            display: flex;
-            align-items: center;
-            background-color: black;
-            .logo {
-                flex-basis: 47%;
-                margin-left: 25px;
-                color: white;
-                margin: 0px 100px
-            }
-            .navegacion {
-                flex-basis: 32%;
-                padding-right: 25px;
-                ul {
+    body {
+        background-image: url("/pattern.png");
+        .icon {
+            @extend %icon;
+        }
+        .container-grid {
+            width: 95%;
+            height: 1925px;
+            margin: 0 auto;
+            border: $borde-prueba;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: 70px 120px 400px 1200px 70px;
+            row-gap: 2%;
+            column-gap: 2%;
+            .cabecera {
+                height: 70px;
+                width: 100%;
+                font-family: "BebasNeue";
+                grid-column: 1/4;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                background-color: black;
+                .logo {
+                    width: 200px;
+                    height: 50px;
+                    background-color: $azulprincipal;
+                    color: white;
+                    margin-left: -200px;
+                    letter-spacing: 1px;
                     display: flex;
-                    list-style: none;
-                    border: $borde-prueba;
-                    justify-content: space-between;
-                    li {
-                        a {
-                            text-decoration: none;
-                            color: white;
+                    flex-basis: 15.7%;
+                    justify-content: center;
+                    align-items: center;
+                    padding-top: 3px;
+                    cursor: pointer;
+                    overflow: hidden;
+                    transition: all 300ms;
+                    h3 {
+                        justify-self: flex-end;
+                        font-size: 40px;
+                        padding-right: 50px;
+                        padding-left: 10px;
+                    }
+                    .ws {
+                        font-size: 30px;
+                        margin-bottom: 8px;
+                    }
+                }
+                .navegacion {
+                    flex-basis: 30%;
+                    margin-right: -200px;
+                    ul {
+                        display: flex;
+                        list-style: none;
+                        border: $borde-prueba;
+                        justify-content: space-between;
+                        li {
+                            font-size: 24px;
+                            letter-spacing: 1px;
+                            a {
+                                display: block;
+                                text-decoration: none;
+                                color: white;
+                                transition: all 300ms;
+                            }
+                            a:hover {
+                                color: $azulprincipal;
+                                transform: scale(1.5, 1.6);
+                            }
                         }
                     }
                 }
             }
-        }
-        .banner {
-            height: 120px;
-            border: 5px solid black;
-            grid-row: 2/3;
-            grid-column: 1/4;
-            text-align: center;
-            line-height: 120px;
-        }
-        .tarjetas {
-            height: 400px;
-            border: $borde-prueba;
-            grid-row: 3/4;
-            grid-column: 1/4;
-            border: 5px solid black;
-            display: flex;
-            flex-flow: row nowrap;
-            align-items: center;
-            justify-content: center;
-            .tarjeta {
-                flex-basis: 25%;
-                flex-grow: 1;
-                margin: 30px;
-                height: 300px;
-                border: $borde-prueba;
+            .banner-principal {
+                height: 100px;
+                border: 10px solid white;
+                box-shadow: 0px 0px 2px gray;
+                background-image: url(/img/bedu.png);
+                background-position: -50px -126px;
+                grid-row: 2/3;
+                grid-column: 1/4;
+                text-align: center;
+                line-height: 100px;
+                color: white;
             }
-        }
-        aside {
-            height: 1200px;
-            grid-column: 3/4;
-            grid-row: 4/5;
-            display: flex;
-            flex-direction: column;
-            flex-wrap: nowrap;
-            h3 {
-                height: 50px;
+            .tarjetas {
+                height: 400px;
                 border: $borde-prueba;
-            }
-            .buscar {
+                grid-row: 3/4;
+                grid-column: 1/4;
+                margin-top: 40px;
+                border: 5px solid black;
                 display: flex;
-                flex-flow: column nowrap;
-                height: 50px;
-                margin-top: 15px;
-            }
-            .login {
-                #login {
-                    height: 250px;
-                    margin-top: 20px;
-                    margin-bottom: 30px;
-                    display: flex;
-                    flex-flow: row wrap;
-                    align-items: center;
-                    justify-content: center;
+                flex-flow: row nowrap;
+                align-items: center;
+                justify-content: center;
+                .tarjeta {
+                    cursor: pointer;
+                    flex-basis: 25%;
+                    flex-grow: 1;
+                    margin: 30px;
+                    padding: 5px;
+                    height: 300px;
                     border: $borde-prueba;
-                    .registro {
-                        flex-basis: 95%;
-                        height: 20px;
+                    text-align: center;
+                    display: flex;
+                    flex-flow: column wrap;
+                    justify-content: center;
+                    box-shadow: 1px 1px 2px black;
+                    background-color: white;
+                    .icon {
+                        font-size: 50px;
+                        margin-top: -80px;
                     }
-                    .botones {
-                        flex-basis: 30%;
-                        height: 30px;
-                        width: 100px;
-                        padding: 10px 0px 25px 0;
-                        align-self: center;
+                    .i {
+                        padding-top: 20px;
                     }
-                    a {
-                        flex-basis: 70%;
-                        text-align: center;
+                    .categoria {
+                        width: 100%;
+                        margin-top: 20px;
+                        margin-bottom: 20px;
+                        font-family: $Trebuchet;
+                        font-size: 21px;
+                        font-weight: bold;
+                        color: $azulsecundario;
+                    }
+                    .descripcion {
+                        color: #0370b9;
+                        font-family: $Trebuchet;
+                        font-size: 15px;
                     }
                 }
             }
-            .redes {
-                height: 240px;
-                font-size: 30px;
-                margin: 0 auto;
-                margin-top: 20px;
-                margin-bottom: 30px;
-                border: $borde-prueba;
-            }
-            .patrocinadores {
-                height: 240px;
-                border: $borde-prueba;
-                margin-top: 20px;
-            }
-        }
-        .articulos {
-            height: 1000px;
-            grid-column: 1/3;
-            grid-row: 4/5;
-            border: $borde-prueba;
-            display: flex;
-            flex-direction: column;
-            padding: 20px;
-            article {
-                height: 150px;
-                margin-top: 40px;
+            aside {
+                min-height: 1200px;
+                grid-column: 3/4;
+                grid-row: 4/5;
                 display: flex;
                 flex-direction: column;
-                border: $borde-prueba;
-                .datos {
-                    display: flex;
-                    a {
-                        flex-basis: 71%;
-                        margin-top: 18px;
-                        margin-left: 10px;
-                    }
-                    span {
-                        flex-basis: 17%;
-                        border: $borde-prueba;
-                    }
-                    .s1 {
-                        border-right: 0px solid black;
-                        margin-left: 25px;
-                        padding-left: 5px;
-                    }
-                    .s2 {
-                        border-left: 0px solid black;
-                        padding-right: 5px;
+                flex-wrap: nowrap;
+                margin-top: 40px;
+                font-family: $Trebuchet;
+                h3 {
+                    display: block;
+                    margin: 0 auto;
+                    width: 90%;
+                    height: 50px;
+                    padding-left: 15px;
+                    border: $borde-prueba;
+                    text-align: start;
+                    line-height: 50px;
+                    background: url(/img/pxgray.png), white;
+                    box-shadow: 0px 1px 0px #393d3f, 1px 2px 0px #393d3f, 2px 3px 0px #393d3f;
+                    font-size: 30px;
+                    font-family: $Bebas;
+                    font-weight: normal;
+                    letter-spacing: 2px;
+                }
+                h3:first-child {
+                    margin-bottom: 15px;
+                }
+                .buscar {
+                    width: 80%;
+                    margin: 0 auto;
+                    #buscar {
+                        display: flex;
+                        flex-direction: row nowrap;
+                        flex-basis: 250px;
+                        height: 30px;
+                        margin: 0 auto;
+                        @extend %cajas-side;
+                        margin-bottom: 15px;
+                        input[type="text"] {
+                            flex-basis: 500px;
+                            height: 30px;
+                            border-color: transparent;
+                            border: none !important;
+                            padding-left: 5px;
+                            background-color: transparent;
+                            color: #ccc;
+                            margin-left: 10px;
+                            transition: all 300ms;
+                        }
+                        input[type="text"]:focus {
+                            color: #555;
+                        }
+                        input[type="button"],
+                        input[type="submit"] {
+                            flex-basis: 60px;
+                            height: 30px;
+                            cursor: pointer;
+                            font-size: 16px;
+                            background-color: transparent;
+                            border: none;
+                            border-left: 1px solid #ccc;
+                            color: #555;
+                            padding-left: 2px;
+                        }
                     }
                 }
-                p {
-                    margin-top: 10px;
-                    justify-self: center;
-                    align-self: center;
-                    padding: 10px;
+                .aside-box {
+                    width: 80%;
+                    margin: 0 auto;
+                    height: 240px;
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                    padding-top: 2px;
+                    background-color: white;
+                    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.3), 0px 3px 7px rgba(0, 0, 0, 0.3), 0px 1px white inset, 0px -3px 2px rgba(0, 0, 0, 0.3)inset;
+                }
+                .login {
+                    width: 80%;
+                    #login {
+                        height: 240px;
+                        display: flex;
+                        flex-flow: row wrap;
+                        align-items: center;
+                        justify-content: center;
+                        background-color: white;
+                        .prueba {
+                            display: flex;
+                            flex-wrap: wrap;
+                            flex-basis: 255px;
+                            align-items: center;
+                            justify-content: center;
+                            @extend %cajas-side;
+                            .icon {
+                                flex-basis: 18px;
+                                height: 20px;
+                                background-color: transparent;
+                                color: black;
+                                padding: 2px;
+                            }
+                            .registro {
+                                height: 20px;
+                                justify-content: flex-end;
+                                flex-basis: 225px;
+                                border: none;
+                                border-left: 1px solid #ccc;
+                                color: #ccc;
+                                transition: all 300ms;
+                                padding-left: 2px;
+                            }
+                            .pas {
+                                font-size: 20px;
+                                margin-left: 2px;
+                            }
+                            .registro:focus {
+                                color: #555;
+                                border-color: none;
+                            }
+                        }
+                        .botones {
+                            flex-basis: 30%;
+                            height: 30px;
+                            width: 100px;
+                            padding: 10px 0px 25px 0;
+                            align-self: center;
+                            background-color: #38b0dc;
+                            border: 1px solid #156785;
+                            border-radius: 15px;
+                            margin-left: 8px;
+                            color: white;
+                            font-weight: normal;
+                            transition: all 300ms;
+                        }
+                        .botones:hover {
+                            background-color: $azulsecundario;
+                        }
+                        a {
+                            flex-basis: 70%;
+                            text-align: center;
+                            text-decoration: none;
+                            color: black;
+                            font-size: 14px;
+                        }
+                    }
+                }
+                .redes {
+                    font-size: 30px;
+                    width: 80%;
+                    height: 205px;
+                    display: flex;
+                    flex-flow: column nowrap;
+                    justify-content: space-evenly;
+                    a {
+                        color: black;
+                        text-decoration: none;
+                        margin-left: 20px;
+                        margin-top: -15px;
+                    }
+                }
+                .patrocinadores {
+                    //aqui podremos un video
                 }
             }
-        }
-        footer {
-            height: 70px;
-            border: $borde-prueba;
-            grid-row: 5/6;
-            grid-column: 1/4;
-            margin-top: -90px;
+            .articulos {
+                height: 1000px;
+                grid-column: 1/3;
+                grid-row: 4/5;
+                border: $borde-prueba;
+                display: flex;
+                flex-direction: column;
+                margin-top: 40px;
+                padding: 20px;
+                article {
+                    height: 150px;
+                    margin-top: 40px;
+                    display: flex;
+                    flex-direction: column;
+                    border: $borde-prueba;
+                    .datos {
+                        display: flex;
+                        a {
+                            flex-basis: 71%;
+                            margin-top: 18px;
+                            margin-left: 10px;
+                        }
+                        span {
+                            flex-basis: 17%;
+                            border: $borde-prueba;
+                        }
+                        .s1 {
+                            border-right: 0px solid black;
+                            margin-left: 25px;
+                            padding-left: 5px;
+                        }
+                        .s2 {
+                            border-left: 0px solid black;
+                            padding-right: 5px;
+                        }
+                    }
+                    p {
+                        margin-top: 10px;
+                        justify-self: center;
+                        align-self: center;
+                        padding: 10px;
+                    }
+                }
+            }
+            footer {
+                height: 70px;
+                border: $borde-prueba;
+                grid-row: 5/6;
+                grid-column: 1/4;
+                margin-top: -90px;
+            }
         }
     }
 }
